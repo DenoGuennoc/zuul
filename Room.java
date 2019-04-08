@@ -8,6 +8,7 @@ public class Room
 {
     private String aDescription;
     private HashMap<String, Room> exits;
+    private String aImageName;
     
     /**
      * Constructeur naturel de la classe.
@@ -16,6 +17,7 @@ public class Room
     {
         this.aDescription = pDescription;
         exits = new HashMap<String, Room>();
+        aImageName = "image";
     }
     
     /**
@@ -60,13 +62,22 @@ public class Room
         return returnString;
     }
     
-   /**
-    * Retourne une description longue de la Room dans laquelle le joueur se trouve.
-    * Cette description peut contenir plus que le simple nom de la pièce et la
-    * liste de ses sorties.
-    */
+    /**
+     * Retourne une description longue de la Room dans laquelle le joueur se trouve.
+     * Cette description peut contenir plus que le simple nom de la pièce et la
+     * liste de ses sorties.
+     */
     public String getLongDescription ()
     {
         return "You are in the " + aDescription + ".\n" + getExitString();
     }
+    
+    /**
+     * Return a string describing the room's image name.
+     */
+     public String getImageName ()
+     {
+         return this.aImageName;
+     }
+    
 } // Room
