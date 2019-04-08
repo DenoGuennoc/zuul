@@ -19,8 +19,8 @@ public class GameEngine
     public GameEngine ()
     {
         aParser = new Parser();
-        this.createRooms();
-        aRooms = new HashMap<String, Room>();
+        createRooms();
+        
     }
     
     public void setGUI(UserInterface userInterface)
@@ -46,7 +46,7 @@ public class GameEngine
      
     /**
      * Créateur de salles :
-     * Crée les Room et leur attribue des sorties.
+     * Crée les Rooms et leur attribue des sorties.
      */
     private void createRooms ()
     {
@@ -96,7 +96,8 @@ public class GameEngine
        vEc.setExit("sail to France", vFr);
        vNZ.setExit("fly to France", vFr);
        */
-        
+       
+       aRooms = new HashMap<String, Room>();
        aRooms.put("Theatre", vTheatre);
        aRooms.put("Outside", vOutside);
        aRooms.put("Pub", vPub);
@@ -160,18 +161,16 @@ public class GameEngine
         
         // Extraction du SecondWord pour connaître la direction choisie
         String vDirection = pDep.getSecondWord();
-        vDirection = vDirection.toLowerCase();
-        Room vNextRoom = aCurrentRoom.getExit(vDirection);
+        Room vNextRoom = null;
         
         // Ensemble des cas de déplacements possibles
-        if (vNextRoom == null)
-            gui.println("There is no door !");
-        else {
+        if (this.aCurrentRoom.getExit(vDirection) != null) {
+            vNextRoom = aCurrentRoom.getExit(vDirection);
             aCurrentRoom = vNextRoom;
-            gui.println(aCurrentRoom.getLongDescription());
-            if (aCurrentRoom.getImageName() != null)
-                gui.showImage(aCurrentRoom.getImageName());
+            this.printLocationInfo();
         }
+        else
+            gui.println("There is no door !");
     }
     
     /**
@@ -181,7 +180,7 @@ public class GameEngine
      */
     private void look()
     {
-        System.out.println(aCurrentRoom.getLongDescription());
+        gui.println(aCurrentRoom.getLongDescription());
     }
     
     /**
@@ -190,16 +189,18 @@ public class GameEngine
      */
     private void eat()
     {
-        System.out.println("You have eaten now and you are not angry any more");
+        gui.println("You have eaten now and you are not angry any more");
     }
     
     /**
      * Affiche le nom de la pièce corrante, la liste des sorties disponibles
-     * et sa description longue.
+     * son image et sa description longue.
      */
     private void printLocationInfo()
     {
-        System.out.println(this.aCurrentRoom.getLongDescription());
+        gui.println(aCurrentRoom.getLongDescription());
+        if (aCurrentRoom.getImageName() != null)
+            gui.showImage(aCurrentRoom.getImageName());
     }
         
     private void endGame()
