@@ -23,7 +23,7 @@ public class Parser
     private CommandWords aValidCommands;  // (voir la classe CommandWords)
     
     /**
-     * Constructeur par defaut qui cree les 2 objets prevus pour les attributs
+     * Constructor of the Parser class
      */
     public Parser() 
     {

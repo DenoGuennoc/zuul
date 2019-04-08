@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.target=Game
-comment0.text=\r\n\ Classe\ du\ jeu\ \:\r\n\ Contient\ la\ cr\u00E9ation\ des\ salles\ et\ les\ actions\ associ\u00E9es\r\n\ \u00E0\ chaque\ commande\ auxquelles\ l'utilisateur\ peut\ faire\ appel.\r\n
+comment0.text=\r\n\ Game\ class.\r\n
 comment1.params=
 comment1.target=Game()
-comment1.text=\r\n\ Constructeur\ naturel\ de\ la\ classe.\r\n
+comment1.text=\r\n\ Constructor\ of\ the\ Game\ class.\r\n
 numComments=2

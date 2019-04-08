@@ -30,8 +30,8 @@ public class GameEngine
     }
     
     /**
-     * Affiche un message d'accueil au début du jeu ainsi que
-     * la pièce corrante et sa description.
+     * Prints out a welcome message at the begining of the game.
+     * Also print the current location and its description.
      */
     private void printWelcome ()
     {
@@ -45,8 +45,8 @@ public class GameEngine
     }
      
     /**
-     * Créateur de salles :
-     * Crée les Rooms et leur attribue des sorties.
+     * Creates all the rooms and attributes their exits.
+     * Also generate a catalog of all the rooms.
      */
     private void createRooms ()
     {
@@ -109,7 +109,10 @@ public class GameEngine
        this.aCurrentRoom = vOutside;
      }
     
-    public void processCommand (String pCommandLine)
+    /**
+     * Attributes to each command the user gave the right method.
+     */
+     public void processCommand (String pCommandLine)
     { 
         gui.println(pCommandLine);
         Command aCommand = aParser.getCommand(pCommandLine);
@@ -138,8 +141,7 @@ public class GameEngine
     }
     
     /**
-     * Commande d'aide :
-     * Rapelle les commandes disponibles à l'utilisateur pour jouer.
+     * Prints out a list of the commands the user can rely on.
      */
     private void printHelp ()
     {
@@ -147,11 +149,12 @@ public class GameEngine
         gui.println ("You are lost. You are alone.");
         gui.println ("You wander around at the university.");
         gui.println ("\n");
-        gui.println ("Your command words are:" + aParser.showCommands());
+        gui.println ("Your command words are : " + aParser.showCommands());
     }
     
     /**
-     * Permet le déplacement entre les différente salles.
+     * Allows to move from a room to another if an exit is available
+     * in the direction chosen by the user.
      */
     private void goRoom (final Command pDep)
     {
@@ -174,9 +177,8 @@ public class GameEngine
     }
     
     /**
-     * Commande look :
-     * Permet à tout moment de visualiser la salle dans laquelle se
-     * trouve le joueur et sa description longue.
+     * By using the look command, the user can see at anytime which room
+     * he is in, and the long description of it.
      */
     private void look()
     {
@@ -184,8 +186,7 @@ public class GameEngine
     }
     
     /**
-     * Commande eat :
-     * Fait manger le personnage.
+     * So the character could eat.
      */
     private void eat()
     {
@@ -193,8 +194,8 @@ public class GameEngine
     }
     
     /**
-     * Affiche le nom de la pièce corrante, la liste des sorties disponibles
-     * son image et sa description longue.
+     * Prints out the long description of the current room and the picture
+     * attached to it if there's one.
      */
     private void printLocationInfo()
     {
@@ -203,6 +204,9 @@ public class GameEngine
             gui.showImage(aCurrentRoom.getImageName());
     }
         
+    /**
+     * Allows the user to quit the game.
+     */
     private void endGame()
     {
         gui.println("Thank you for playing.  Good bye.");

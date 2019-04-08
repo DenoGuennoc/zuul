@@ -1,6 +1,6 @@
-  import java.util.*; 
+import java.util.*; 
 
-    /**
+/**
  * This class is part of the "World of Zuul" application. 
  * "World of Zuul" is a very simple, text based adventure game.  
  * 
@@ -18,7 +18,7 @@ public class CommandWords
     };
     
     /**
-     * Print all valid commands to System.out.
+     * Create a String with a list of all the valid commands.
      */
     public String getCommandList ()
     {
@@ -31,7 +31,7 @@ public class CommandWords
     
     
     /**
-     * Constructeur par defaut
+     * Constructor of the class CommandWords.
      */
     public CommandWords()
     {
@@ -39,9 +39,9 @@ public class CommandWords
     } // CommandWords()
 
     /**
-     * Verifie si une String donnee fait partie des commandes valides. 
-     * @param pString la String a tester
-     * @return true si pString est une comande valide, false sinon
+     * Check if a given String is a valid command.
+     * Returns true if pString (tested String) is a valid command.
+     * Returns false otherwise.
      */
     public boolean isCommand( final String pString )
     {

@@ -1,8 +1,9 @@
 import java.util.*; 
 
 /**
- * Classe permettant la création des sorties des différentes salles.
- * Une Room est caractérisée par ses sorties et sa description longue.
+ * Room class :
+ * Contains all the needed accessors and modifiers concerning the rooms
+ * and exits.
  */
 public class Room
 {
@@ -11,7 +12,7 @@ public class Room
     private String aImageName;
     
     /**
-     * Constructeur naturel de la classe.
+     * Constructor of the Room class.
      */
     public Room (final String pDescription) 
     {
@@ -21,8 +22,7 @@ public class Room
     }
     
     /**
-     * Accesseur, permet d'accéder à la description de la Room et de
-     * pouvoir s'en servir dans d'autres classes.
+     * Accessor : is used to reach the current room description.
      */
     public String getDescription ()
     {
@@ -30,9 +30,8 @@ public class Room
     }
     
     /**
-     * Modificateur, place les sorties des Room en fonction de la direction
-     * dans laquelle elles se trouvent et de la Room voisine, à laquelle alles
-     * donnent accès.
+     * Modifier : set each room exits depending on the name of the exit
+     * and the other room linked to it.
      */
     public void setExit (final String pDirection, final Room pVoisin)
     {
@@ -40,8 +39,8 @@ public class Room
     }
     
     /**
-     * Accesseur, retourne la valeur de chaque sortie en fonction
-     * de la direction souhaitée.
+     * Accessor : returns a value for each possible exit. Returns null 
+     * if the exit doesn't exist in the current room.
      */
     public Room getExit(String pDirection)
     {
@@ -49,7 +48,7 @@ public class Room
     }
     
     /**
-     * Retourne la liste des sorties de la Room.
+     * Returns a list of all the possible exits for the current room.
      */
     public String getExitString()
     {
@@ -63,9 +62,8 @@ public class Room
     }
     
     /**
-     * Retourne une description longue de la Room dans laquelle le joueur se trouve.
-     * Cette description peut contenir plus que le simple nom de la pièce et la
-     * liste de ses sorties.
+     * Returns a longer description of the current room.
+     * It contains the name of the room and the list of its exits.
      */
     public String getLongDescription ()
     {
@@ -73,7 +71,7 @@ public class Room
     }
     
     /**
-     * Return a string describing the room's image name.
+     * Returns a String describing the room's image name.
      */
      public String getImageName ()
      {
