@@ -20,12 +20,13 @@ public class CommandWords
     /**
      * Print all valid commands to System.out.
      */
-    public void showAll ()
+    public String getCommandList ()
     {
+        String ComList = "";
         for (String pCommand : sValidCommands) {
-            System.out.print(pCommand + " ");
+            ComList += pCommand + " ";
         }
-        System.out.println();
+        return ComList;
     }
     
     

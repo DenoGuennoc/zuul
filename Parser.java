@@ -71,6 +71,6 @@ public class Parser
      */
     public void showCommands()
     {
-        aValidCommands.showAll();
+        aValidCommands.getCommandList();
     }
 } // Parser
