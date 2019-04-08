@@ -1,3 +1,4 @@
+ import java.util.*; 
  
 /**
  * Classe du jeu :
@@ -8,6 +9,7 @@ public class Game
 {
     private Room aCurrentRoom;
     private Parser aParser;
+    private HashMap <String, Room> aRooms;
     
     /**
      * Constructeur naturel de la classe.
@@ -16,6 +18,7 @@ public class Game
     {
         this.createRooms();
         aParser = new Parser();
+        aRooms = new HashMap<String, Room>();
     }
     
     /**
@@ -137,8 +140,6 @@ public class Game
         Room vLab = new Room("computing lab");
         Room vOffice = new Room("computing admin office");
         Room vPremier = new Room("first floor");
-        Room vClemenceKoeurKoeur = new Room("Clemenceland");
-        Room vLoic = new Room("Pars à Dit...");
         
         /** Pour le jeu :
         Room vFr = new Room("France");
@@ -167,10 +168,6 @@ public class Game
         vLab.setExit ("east", vOffice);
         vOffice.setExit ("west", vLab);
         vPremier.setExit ("down", vPub);
-        vClemenceKoeurKoeur. setExit ("north", vLab);
-        vLab.setExit ("south", vClemenceKoeurKoeur);
-        vLoic.setExit ("up", vPub);
-        vPub.setExit ("down", vLoic);
         
         /** vOutside.setExit ("north", vFr);
         
@@ -183,6 +180,12 @@ public class Game
         vNZ.setExit("fly to France", vFr);
         */
         
+        aRooms.put("Theatre", vTheatre);
+        aRooms.put("Outside", vOutside);
+        aRooms.put("Pub", vPub);
+        aRooms.put("Lab", vLab);
+        aRooms.put("Office", vOffice);
+        aRooms.put("Premier", vPremier);
         
         // Initialisation du lieu courant
         this.aCurrentRoom = vOutside;
