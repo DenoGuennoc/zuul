@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=Room
 comment0.text=\r\n\ Room\ class\ \:\r\n\ Contains\ all\ the\ needed\ accessors\ and\ modifiers\ concerning\ the\ rooms\r\n\ and\ exits.\r\n
-comment1.params=pDescription
-comment1.target=Room(java.lang.String)
+comment1.params=pDescription\ pImageName
+comment1.target=Room(java.lang.String,\ java.lang.String)
 comment1.text=\r\n\ Constructor\ of\ the\ Room\ class.\r\n
 comment2.params=
 comment2.target=java.lang.String\ getDescription()

@@ -14,11 +14,11 @@ public class Room
     /**
      * Constructor of the Room class.
      */
-    public Room (final String pDescription) 
+    public Room (final String pDescription, final String pImageName) 
     {
         this.aDescription = pDescription;
         exits = new HashMap<String, Room>();
-        aImageName = "image";
+        this.aImageName = pImageName;
     }
     
     /**

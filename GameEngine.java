@@ -61,46 +61,46 @@ public class GameEngine
        */
       
        // Pour le jeu :
-       Room vConsulat = new Room ("Consulate");
-       Room vAirFr = new Room ("Centre des Air transport center");
-       Room vSTFr = new Room ("Underground transport center");
-       Room vAirNz = new Room ("Centre des Air transport center");
-       Room vSTNz = new Room ("Underground transport center");
-       Room vAirAu = new Room ("Centre des Air transport center");
-       Room vSTAu = new Room ("Underground transport center");
-       Room vAirIndo = new Room ("Centre des Air transport center");
-       Room vSTIndo = new Room ("Underground transport center");
-       Room vAirInde = new Room ("Air transport center");
-       Room vSTInde = new Room ("Underground transport center");
-       Room vAirJo = new Room ("Air transport center");
-       Room vSTJo = new Room ("Underground transport center");
-       Room vAirKe = new Room ("Air transport center");
-       Room vSTKe = new Room ("Underground transport center");
-       Room vAirAs = new Room ("Air transport center");
-       Room vSTAs = new Room ("Underground transport center");
-       Room vAirCr = new Room ("Air transport center");
-       Room vSTCr = new Room ("Underground transport center");
-       Room vAirCa = new Room ("Air transport center");
-       Room vSTCa = new Room ("Underground transport center");
-       Room vAirGr = new Room ("Air transport center");
-       Room vSTGr = new Room ("Underground transport center");
-       Room vAirIs = new Room ("Air transport center");
-       Room vSTIs = new Room ("Underground transport center");
-       Room vAirEc = new Room ("Air transport center");
-       Room vSTEc = new Room ("Underground transport center");
-       Room vFr = new Room("France");
-       Room vNz = new Room("New Zealand");
-       Room vAu = new Room("Australia");
-       Room vIndo = new Room("Indonesia");
-       Room vInde = new Room("India");
-       Room vJo = new Room("Jordan");
-       Room vKe = new Room("Kenya");
-       Room vAs = new Room("South Africa");
-       Room vCr = new Room("Costa Rica");
-       Room vCa = new Room("Canada");
-       Room vGr = new Room("Greenland");
-       Room vIs = new Room("Iceland");
-       Room vEc = new Room("Scotland");
+       Room vConsulat = new Room ("Consulate", "Images/consulate.jpg");
+       Room vAirFr = new Room ("Centre des Air transport center", "Images/bientot.gif");
+       Room vSTFr = new Room ("Underground transport center", "Images/bientot.gif");
+       Room vAirNz = new Room ("Centre des Air transport center", "Images/bientot.gif");
+       Room vSTNz = new Room ("Underground transport center", "Images/bientot.gif");
+       Room vAirAu = new Room ("Centre des Air transport center", "Images/bientot.gif");
+       Room vSTAu = new Room ("Underground transport center", "Images/bientot.gif");
+       Room vAirIndo = new Room ("Centre des Air transport center", "Images/bientot.gif");
+       Room vSTIndo = new Room ("Underground transport center", "Images/bientot.gif");
+       Room vAirInde = new Room ("Air transport center", "Images/bientot.gif");
+       Room vSTInde = new Room ("Underground transport center", "Images/bientot.gif");
+       Room vAirJo = new Room ("Air transport center", "Images/bientot.gif");
+       Room vSTJo = new Room ("Underground transport center", "Images/bientot.gif");
+       Room vAirKe = new Room ("Air transport center", "Images/bientot.gif");
+       Room vSTKe = new Room ("Underground transport center", "Images/bientot.gif");
+       Room vAirAs = new Room ("Air transport center", "Images/bientot.gif");
+       Room vSTAs = new Room ("Underground transport center", "Images/bientot.gif");
+       Room vAirCr = new Room ("Air transport center", "Images/bientot.gif");
+       Room vSTCr = new Room ("Underground transport center", "Images/bientot.gif");
+       Room vAirCa = new Room ("Air transport center", "Images/bientot.gif");
+       Room vSTCa = new Room ("Underground transport center", "Images/bientot.gif");
+       Room vAirGr = new Room ("Air transport center", "Images/bientot.gif");
+       Room vSTGr = new Room ("Underground transport center", "Images/bientot.gif");
+       Room vAirIs = new Room ("Air transport center", "Images/bientot.gif");
+       Room vSTIs = new Room ("Underground transport center", "Images/bientot.gif");
+       Room vAirEc = new Room ("Air transport center", "Images/bientot.gif");
+       Room vSTEc = new Room ("Underground transport center", "Images/bientot.gif");
+       Room vFr = new Room("France", "Images/france.jpg");
+       Room vNz = new Room("New Zealand", "Images/newzealand.jpg");
+       Room vAu = new Room("Australia", "Images/australia.jpg");
+       Room vIndo = new Room("Indonesia", "Images/indonesia.jpg");
+       Room vInde = new Room("India", "Images/inde.jpg");
+       Room vJo = new Room("Jordan", "Images/jordan.jpg");
+       Room vKe = new Room("Kenya", "Images/kenya.jpg");
+       Room vAs = new Room("South Africa", "Images/southafrica.jpg");
+       Room vCr = new Room("Costa Rica", "Images/costarica.jpg");
+       Room vCa = new Room("Canada", "Images/canada.jpg");
+       Room vGr = new Room("Greenland", "Images/greenland.jpg");
+       Room vIs = new Room("Iceland", "Images/iceland.jpg");
+       Room vEc = new Room("Scotland", "Images/scotland.jpg");
        
         
        // Positionnement des sorties
@@ -290,7 +290,6 @@ public class GameEngine
        aRooms.put("Scotland", vEc);
        
        
-      
        // Initialisation du lieu courant
        //this.aCurrentRoom = vOutside;
        this.aCurrentRoom = vFr;
