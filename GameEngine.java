@@ -289,7 +289,7 @@ public class GameEngine
        aRooms.put("Iceland", vIs);
        aRooms.put("Scotland", vEc);
        
-      
+       
       
        // Initialisation du lieu courant
        //this.aCurrentRoom = vOutside;

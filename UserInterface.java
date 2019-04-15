@@ -20,6 +20,7 @@ public class UserInterface implements ActionListener
     private JTextArea  aLog;
     private JLabel     aImage;
     private JButton    aHelpButton;
+    private JButton    aConsulateButton;
 
     /**
      * Construct a UserInterface. As a parameter, a Game Engine
@@ -85,6 +86,7 @@ public class UserInterface implements ActionListener
         this.aEntryField = new JTextField( 34 );
         
         this.aHelpButton = new JButton ("help");
+        this.aConsulateButton = new JButton ("go consulate");
 
         this.aLog = new JTextArea();
         this.aLog.setEditable( false );
@@ -100,6 +102,7 @@ public class UserInterface implements ActionListener
         vPanel.add( vListScroller, BorderLayout.CENTER );
         vPanel.add( this.aEntryField, BorderLayout.SOUTH );
         vPanel.add( this.aHelpButton, BorderLayout.EAST );
+        vPanel.add( this.aConsulateButton, BorderLayout.WEST );
 
         this.aMyFrame.getContentPane().add( vPanel, BorderLayout.CENTER );
 
@@ -110,6 +113,7 @@ public class UserInterface implements ActionListener
 
         this.aEntryField.addActionListener( this );
         this.aHelpButton.addActionListener( this );
+        this.aConsulateButton.addActionListener( this );
         
         this.aMyFrame.pack();
         this.aMyFrame.setVisible( true );
@@ -122,9 +126,10 @@ public class UserInterface implements ActionListener
     public void actionPerformed( final ActionEvent pE ) 
     {
         // Si l'utilisateur appuie sur le bouton
-        if ( pE.getActionCommand().equals("help"))
+        if ( pE.getSource() == this.aHelpButton)
             this.aEngine.processCommand("help");
-        
+        else if ( pE.getSource() == this.aConsulateButton)
+            this.aEngine.processCommand("go consulate");
         // Sinon
         else this.processCommand();
     } // actionPerformed(.)
