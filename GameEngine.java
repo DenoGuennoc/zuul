@@ -10,7 +10,7 @@ public class GameEngine
 {
     private Parser aParser;
     private Room aCurrentRoom;
-    private Room aPreviousRoom;
+    private Stack<Room> aPreviousRooms;
     private UserInterface gui;
     private HashMap <String, Room> aRooms;
      
@@ -20,8 +20,8 @@ public class GameEngine
     public GameEngine ()
     {
         aParser = new Parser();
+        aPreviousRooms = new Stack<Room>();
         createRooms();
-        
     }
     
     public void setGUI(UserInterface userInterface)
@@ -93,7 +93,7 @@ public class GameEngine
        Room vNz = new Room("New Zealand", "Images/newzealand.jpg");
        Room vAu = new Room("Australia", "Images/australia.jpg");
        Room vIndo = new Room("Indonesia", "Images/indonesia.jpg");
-       Room vInde = new Room("India", "Images/inde.jpg");
+       Room vInde = new Room("India", "Images/india.jpg");
        Room vJo = new Room("Jordan", "Images/jordan.jpg");
        Room vKe = new Room("Kenya", "Images/kenya.jpg");
        Room vAs = new Room("South Africa", "Images/southafrica.jpg");
@@ -219,7 +219,7 @@ public class GameEngine
        vAirInde.setExit ("chopper", vFr);
        vAirFr.setExit ("chopper", vInde);
        vJo.setExit ("caravan", vKe);
-       vKe.setExit ("caravan", vKe);
+       vKe.setExit ("caravan", vJo);
        vAirAs.setExit ("ballooning", vKe);
        vAirKe.setExit ("ballooning", vAs);
        vAs.setExit ("catamaran", vCr);
@@ -299,8 +299,8 @@ public class GameEngine
        // Initialisation du lieu courant
        //this.aCurrentRoom = vOutside;
        this.aCurrentRoom = vFr;
-       this.aPreviousRoom = vFr;
-     }
+       //aPreviousRooms.push(aCurrentRoom);
+    }
     
     /**
      * Attributes to each command the user gave the right method.
@@ -367,7 +367,7 @@ public class GameEngine
         // Ensemble des cas de déplacements possibles
         if (this.aCurrentRoom.getExit(vDirection) != null) {
             vNextRoom = aCurrentRoom.getExit(vDirection);
-            aPreviousRoom = aCurrentRoom;
+            aPreviousRooms.push(this.aCurrentRoom);
             aCurrentRoom = vNextRoom;
             this.printLocationInfo();
         }
@@ -393,12 +393,18 @@ public class GameEngine
     }
     
     /**
-     * 
+     * Allows the user to go back to the previous room by only
+     * entering "back".
      */
     private void back()
     {
-        this.aCurrentRoom = this.aPreviousRoom;
-        this.printLocationInfo();
+        if (aPreviousRooms.empty())
+            gui.println ("You can't go back any further");
+        else
+        {
+            this.aCurrentRoom = aPreviousRooms.pop();
+            this.printLocationInfo();
+        }
     }
     
     /**
