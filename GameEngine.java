@@ -332,7 +332,10 @@ public class GameEngine
         else if (vCommandWord.equals("eat"))
             eat();
         else if (vCommandWord.equals("back"))
-            back();
+            if(aCommand.hasSecondWord())
+                gui.println("No second word after back");
+            else
+                back();
     }
     
     /**
@@ -394,12 +397,7 @@ public class GameEngine
      */
     private void back()
     {
-        // les lignes 1 et 3 sont optionnelles 
-        // c'est pour pouvoir aller et venir entre deux salles à l'infini
-        // ce qui n'a aucun intérêt mais c'est drôle
-        Room vRoomProvisoire = this.aCurrentRoom;
         this.aCurrentRoom = this.aPreviousRoom;
-        this.aPreviousRoom = vRoomProvisoire;
         this.printLocationInfo();
     }
     
