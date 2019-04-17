@@ -27,5 +27,5 @@ comment8.target=void\ addItem(Item)
 comment8.text=\r\n\ Used\ to\ add\ an\ item\ to\ the\ current\ room.\r\n
 comment9.params=
 comment9.target=java.lang.String\ getItemDescription()
-comment9.text=\r\n\ Returns\ the\ informations\ about\ the\ item\ located\ in\ the\r\n\ current\ room\ \:\ name,\ description,\ weight\r\n\ \r\n\ If\ there's\ no\ item\ in\ the\ room,\ returns\ "No\ item\ here."\r\n
+comment9.text=\r\n\ Returns\ the\ informations\ about\ the\ items\ located\ in\ the\r\n\ current\ room,\ returns\ "Item\ \:\ "\ +\ the\ list\ of\ all\ the\ \r\n\ name\ of\ the\ disponibles\ items.\r\n\ \r\n\ If\ there's\ no\ item\ in\ the\ room,\ returns\ "No\ item\ here."\r\n
 numComments=10

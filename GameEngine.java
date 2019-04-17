@@ -292,6 +292,8 @@ public class GameEngine
        // Ajout d'item
        Item vPassport = new Item ("passport", "you need it to travel", 1);
        vFr.addItem(vPassport);
+       Item vPhone = new Item ("phone", "could be usefull", 1);
+       vFr.addItem(vPhone);
        
        // Initialisation du lieu courant
        //this.aCurrentRoom = vOutside;
