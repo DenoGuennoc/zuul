@@ -10,6 +10,7 @@ public class Room
     private String aDescription;
     private HashMap<String, Room> exits;
     private String aImageName;
+    private Item aItem;
     
     /**
      * Constructor of the Room class.
@@ -67,15 +68,37 @@ public class Room
      */
     public String getLongDescription ()
     {
-        return "You are in " + aDescription + ".\n" + getExitString();
+        return "You are in " + aDescription + ".\n" + getExitString() + ".\n" + getItemDescription();
     }
     
     /**
      * Returns a String describing the room's image name.
      */
-     public String getImageName ()
-     {
-         return this.aImageName;
-     }
+    public String getImageName ()
+    {
+        return this.aImageName;
+    }
+    
+    /**
+     * Used to add an item to the current room.
+     */
+    public void addItem (final Item pItem)
+    {
+         this.aItem = pItem;
+    }
+    
+    /**
+     * Returns the informations about the item located in the
+     * current room : description, weight
+     * 
+     * If there's no item in the room, returns "No item here."
+     */
+    public String getItemDescription()
+    {
+        if (this.aItem == null)
+            return "No item here" + ".\n";
+        else
+            return "Item : " + this.aItem.getItemName() + ".\n";
+    }
     
 } // Room

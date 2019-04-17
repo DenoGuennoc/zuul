@@ -289,6 +289,9 @@ public class GameEngine
        aRooms.put("Iceland", vIs);
        aRooms.put("Scotland", vEc);
        
+       // Ajout d'item
+       Item vPassport = new Item ("passport", "you need it to travel", 1);
+       vFr.addItem(vPassport);
        
        // Initialisation du lieu courant
        //this.aCurrentRoom = vOutside;
