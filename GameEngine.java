@@ -10,6 +10,7 @@ public class GameEngine
 {
     private Parser aParser;
     private Room aCurrentRoom;
+    private Room aPreviousRoom;
     private UserInterface gui;
     private HashMap <String, Room> aRooms;
      
@@ -298,6 +299,7 @@ public class GameEngine
        // Initialisation du lieu courant
        //this.aCurrentRoom = vOutside;
        this.aCurrentRoom = vFr;
+       this.aPreviousRoom = vFr;
      }
     
     /**
@@ -329,6 +331,8 @@ public class GameEngine
             look();
         else if (vCommandWord.equals("eat"))
             eat();
+        else if (vCommandWord.equals("back"))
+            back();
     }
     
     /**
@@ -360,6 +364,7 @@ public class GameEngine
         // Ensemble des cas de déplacements possibles
         if (this.aCurrentRoom.getExit(vDirection) != null) {
             vNextRoom = aCurrentRoom.getExit(vDirection);
+            aPreviousRoom = aCurrentRoom;
             aCurrentRoom = vNextRoom;
             this.printLocationInfo();
         }
@@ -382,6 +387,20 @@ public class GameEngine
     private void eat()
     {
         gui.println("You have eaten now and you are not angry any more");
+    }
+    
+    /**
+     * 
+     */
+    private void back()
+    {
+        // les lignes 1 et 3 sont optionnelles 
+        // c'est pour pouvoir aller et venir entre deux salles à l'infini
+        // ce qui n'a aucun intérêt mais c'est drôle
+        Room vRoomProvisoire = this.aCurrentRoom;
+        this.aCurrentRoom = this.aPreviousRoom;
+        this.aPreviousRoom = vRoomProvisoire;
+        this.printLocationInfo();
     }
     
     /**
