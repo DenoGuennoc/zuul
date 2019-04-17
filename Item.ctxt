@@ -1,19 +1,25 @@
 #BlueJ class context
 comment0.target=Item
-comment0.text=\r\n\ D\u00E9crivez\ votre\ classe\ Item\ ici.\r\n\r\n\ @author\ (votre\ nom)\r\n\ @version\ (un\ num\u00E9ro\ de\ version\ ou\ une\ date)\r\n
+comment0.text=\r\n\ Item\ class\ \:\r\n\ Create\ an\ Item\ with\ a\ name,\ a\ description\ and\ a\ weight.\r\n\ Contains\ the\ getters\ and\ setters\ for\ each\ parameter.\r\n\r\n\ @author\ (votre\ nom)\r\n\ @version\ (un\ num\u00E9ro\ de\ version\ ou\ une\ date)\r\n
 comment1.params=pItemName\ pItemDescription\ pItemWeight
 comment1.target=Item(java.lang.String,\ java.lang.String,\ int)
-comment1.text=\r\n\ Constructeur\ d'objets\ de\ classe\ Item\r\n
+comment1.text=\r\n\ Constructor\ of\ the\ Item\ class\r\n
 comment2.params=
 comment2.target=java.lang.String\ getItemName()
+comment2.text=\r\n\ Accessor\ \:\ used\ to\ access\ the\ name\ of\ the\ item\r\n
 comment3.params=
 comment3.target=java.lang.String\ getItemDescription()
+comment3.text=\r\n\ Accessor\ \:\ used\ to\ access\ the\ description\ of\ the\ item\r\n
 comment4.params=
 comment4.target=int\ getItemWeight()
+comment4.text=\r\n\ Accessor\ \:\ used\ to\ access\ the\ weight\ of\ the\ item\r\n
 comment5.params=pItemName
 comment5.target=void\ setItemName(java.lang.String)
+comment5.text=\r\n\ Modifier\ \:\ used\ to\ set\ the\ Item's\ name\r\n
 comment6.params=pItemDescription
 comment6.target=void\ setItemDescription(java.lang.String)
+comment6.text=\r\n\ Modifier\ \:\ used\ to\ set\ the\ Item's\ description\r\n
 comment7.params=pItemWeight
 comment7.target=void\ setItemWeight(int)
+comment7.text=\r\n\ Modifier\ \:\ used\ to\ set\ the\ Item's\ weight\r\n
 numComments=8

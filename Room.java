@@ -64,7 +64,8 @@ public class Room
     
     /**
      * Returns a longer description of the current room.
-     * It contains the name of the room and the list of its exits.
+     * It contains the name of the room, the list of its exits
+     * and the list of the items in the room.
      */
     public String getLongDescription ()
     {
@@ -89,7 +90,7 @@ public class Room
     
     /**
      * Returns the informations about the item located in the
-     * current room : description, weight
+     * current room : name, description, weight
      * 
      * If there's no item in the room, returns "No item here."
      */
