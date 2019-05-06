@@ -1,0 +1,10 @@
+go boat
+go caravan
+go up
+go ballooning
+go catamaran
+go jeep
+go up
+go seaplane
+go up
+go biplane
