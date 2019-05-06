@@ -1,0 +1,94 @@
+go consulate
+back
+go ferry
+back
+go boat
+back
+go up
+go biplane
+back
+go chopper
+back
+go plane
+back
+back
+go down
+go nautilus
+go jeep
+back
+go up
+go jet
+back
+back
+go down
+back
+go consulate
+back
+go catamaran
+go up
+back
+go down
+go jvernexpress
+go up
+back
+go down
+go whale
+back
+back
+go icebreaker
+go down
+back
+go up
+go seaplane
+go down
+back
+go up
+back
+go rowing
+go down
+back
+go up
+back
+go ferry
+go boat
+go caravan
+back
+go dromedary
+go elephant
+back
+go up
+back
+go down
+go submarine
+go down
+back
+go up
+back
+go sail
+go up
+go jet
+back
+go ballooning
+back
+go raft
+go down
+back
+go up
+back
+go raft
+go up
+go jet
+go catamaran
+go up
+go ballooning
+go down
+back
+go up
+back
+go caravan
+go boat
+go ferry
+look
+eat
+help
+quit
