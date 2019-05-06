@@ -1,4 +1,6 @@
-import java.util.*; 
+import java.util.*;
+import java.io.File;
+import java.io.FileNotFoundException;
  
 /**
 * This class creates all rooms, creates the parser and starts
@@ -299,7 +301,6 @@ public class GameEngine
        // Initialisation du lieu courant
        //this.aCurrentRoom = vOutside;
        this.aCurrentRoom = vFr;
-       //aPreviousRooms.push(aCurrentRoom);
     }
     
     /**
@@ -336,6 +337,11 @@ public class GameEngine
                 gui.println("No second word after back");
             else
                 back();
+        else if (vCommandWord.equals("test"))
+            if(! aCommand.hasSecondWord())
+                gui.println("Test what ?");
+            else
+                test(aCommand);
     }
     
     /**
@@ -394,7 +400,8 @@ public class GameEngine
     
     /**
      * Allows the user to go back to the previous room by only
-     * entering "back".
+     * entering "back" unless he trys to get back futher than
+     * the first room of the game.
      */
     private void back()
     {
@@ -404,6 +411,32 @@ public class GameEngine
         {
             this.aCurrentRoom = aPreviousRooms.pop();
             this.printLocationInfo();
+        }
+    }
+    
+    /**
+     * 
+     */
+    private void test (final Command pCom)
+    {
+        File vFile = new File (pCom.getSecondWord() + ".txt");
+        if (!vFile.exists())
+        {
+            gui.println ("The file you're trying to test doesn't exist");
+            return;
+        }
+        else {
+            Scanner vScanner;
+            try {
+                vScanner = new Scanner(vFile);
+                while (vScanner.hasNext()) {
+                    String vLine = vScanner.nextLine();
+                    if(vLine.replaceAll(" ", "").replaceAll("\t", "").startsWith("#")) continue;
+                    processCommand(vLine);
+                }
+            }
+            catch (final FileNotFoundException pFNFE) {
+            }
         }
     }
     
