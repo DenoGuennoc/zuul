@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=GameEngine
-comment0.text=\r\n\ This\ class\ creates\ all\ rooms,\ creates\ the\ parser\ and\ starts\r\n\ the\ game.\ It\ also\ evaluates\ and\ executes\ the\ commands\ that\r\n\ the\ parse\ returns.\r\n
+comment0.text=\r\n\ This\ class\ creates\ all\ rooms,\ creates\ the\ parser\ and\ starts\r\n\ the\ game.\ It\ also\ evaluates\ and\ executes\ the\ commands\ that\r\n\ the\ parser\ returns.\r\n
 comment1.params=
 comment1.target=GameEngine()
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ GameEngine\r\n

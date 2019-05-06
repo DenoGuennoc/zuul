@@ -5,24 +5,23 @@ import java.io.FileNotFoundException;
 /**
 * This class creates all rooms, creates the parser and starts
 * the game. It also evaluates and executes the commands that
-* the parse returns.
+* the parser returns.
 */
 
 public class GameEngine
 {
     private Parser aParser;
-    private Room aCurrentRoom;
-    private Stack<Room> aPreviousRooms;
     private UserInterface gui;
     private HashMap <String, Room> aRooms;
+    private Player aPlayer;
      
     /**
      * Constructor for objects of class GameEngine
      */
     public GameEngine ()
     {
-        aParser = new Parser();
-        aPreviousRooms = new Stack<Room>();
+        this.aParser = new Parser();
+        this.aPlayer = new Player("Player 1");
         createRooms();
     }
     
@@ -43,8 +42,8 @@ public class GameEngine
        gui.println("No'mad is a new, incredibly cool adventure game.");
        gui.println("Type 'help' if you need help.");
        gui.println("\n");
-       gui.println(aCurrentRoom.getLongDescription());
-       gui.showImage(aCurrentRoom.getImageName());
+       gui.println(this.aPlayer.getCurrentRoom().getLongDescription());
+       gui.showImage(this.aPlayer.getCurrentRoom().getImageName());
     }
      
     /**
@@ -300,7 +299,7 @@ public class GameEngine
        
        // Initialisation du lieu courant
        //this.aCurrentRoom = vOutside;
-       this.aCurrentRoom = vFr;
+       this.aPlayer.setCurrentRoom(vFr);
     }
     
     /**
@@ -371,10 +370,10 @@ public class GameEngine
         Room vNextRoom = null;
         
         // Ensemble des cas de déplacements possibles
-        if (this.aCurrentRoom.getExit(vDirection) != null) {
-            vNextRoom = aCurrentRoom.getExit(vDirection);
-            aPreviousRooms.push(this.aCurrentRoom);
-            aCurrentRoom = vNextRoom;
+        if (this.aPlayer.getCurrentRoom().getExit(vDirection) != null) {
+            vNextRoom = this.aPlayer.getCurrentRoom().getExit(vDirection);
+            this.aPlayer.addPreviousRoom(this.aPlayer.getCurrentRoom());
+            this.aPlayer.setCurrentRoom(vNextRoom);
             this.printLocationInfo();
         }
         else
@@ -387,7 +386,7 @@ public class GameEngine
      */
     private void look()
     {
-        gui.println(aCurrentRoom.getLongDescription());
+        gui.println(this.aPlayer.getCurrentRoom().getLongDescription());
     }
     
     /**
@@ -405,11 +404,11 @@ public class GameEngine
      */
     private void back()
     {
-        if (aPreviousRooms.empty())
+        if (this.aPlayer.noPreviousRoom())
             gui.println ("You can't go back any further");
         else
         {
-            this.aCurrentRoom = aPreviousRooms.pop();
+            this.aPlayer.setCurrentRoom(this.aPlayer.getPreviousRoom());
             this.printLocationInfo();
         }
     }
@@ -446,9 +445,9 @@ public class GameEngine
      */
     private void printLocationInfo()
     {
-        gui.println(aCurrentRoom.getLongDescription());
-        if (aCurrentRoom.getImageName() != null)
-            gui.showImage(aCurrentRoom.getImageName());
+        gui.println(this.aPlayer.getCurrentRoom().getLongDescription());
+        if (this.aPlayer.getCurrentRoom().getImageName() != null)
+            gui.showImage(this.aPlayer.getCurrentRoom().getImageName());
     }
         
     /**
