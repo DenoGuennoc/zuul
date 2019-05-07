@@ -292,10 +292,13 @@ public class GameEngine
        aRooms.put("Scotland", vEc);
        
        // Ajout d'item
-       Item vPassport = new Item ("passport", "you need it to travel", 1);
+       Item vPassport = new Item ("passport", "you need it to travel", 1, false);
        vFr.addItem(vPassport);
-       Item vPhone = new Item ("phone", "could be usefull", 1);
+       Item vPhone = new Item ("phone", "could be usefull", 1, false);
        vFr.addItem(vPhone);
+       Item vEnergyBar = new Item ("energybar", "you can eat it whenever you want, it will give you more energy", 1, true);
+       vEnergyBar.setIsMagic(true, 2);
+       vFr.addItem(vEnergyBar);
        
        // Initialisation du lieu courant
        //this.aCurrentRoom = vOutside;
@@ -330,7 +333,10 @@ public class GameEngine
         else if (vCommandWord.equals("look")) 
             look();
         else if (vCommandWord.equals("eat"))
-            eat();
+            if(!aCommand.hasSecondWord())
+                gui.println("Eat what?");
+            else    
+                eat(aCommand);
         else if (vCommandWord.equals("back"))
             if(aCommand.hasSecondWord())
                 gui.println("No second word after back");
@@ -407,9 +413,29 @@ public class GameEngine
     /**
      * So the character could eat.
      */
-    private void eat()
+    private void eat(final Command pCom)
     {
-        gui.println("You have eaten now and you are not angry any more");
+        if (this.aPlayer.getCarriedItems().ItemExist(pCom.getSecondWord()))
+        {
+            if (this.aPlayer.getCarriedItems().getItem(pCom.getSecondWord()).getIsEdible())
+            {
+                if (! this.aPlayer.getCarriedItems().getItem(pCom.getSecondWord()).getIsMagic())
+                    gui.println("You have eaten now and you are not angry any more");
+                else
+                {
+                    gui.println("You've got plenty of energy now !");
+                    Item vItem = this.aPlayer.getCarriedItems().getItem(pCom.getSecondWord());
+                    int vWeight = this.aPlayer.getCarriedWeight() * vItem.getPower();
+                    this.aPlayer.setCarriedWeight(vWeight);
+                    this.aPlayer.getCarriedItems().removeItem(vItem);
+                    gui.println("You can carry " + vItem.getPower() + " times more weight than you could before !");
+                }
+            }
+            else
+                gui.println("You can't eat that...");
+        }
+        else
+            gui.println("You don't have that in your bag...");
     }
     
     /**
@@ -434,7 +460,7 @@ public class GameEngine
         {
             Item vItem = this.aPlayer.getCurrentRoom().getRoomItems().getItem(pCom.getSecondWord());
             int vWeight = this.aPlayer.getCarriedWeight() + vItem.getItemWeight();
-            if (vWeight <= this.aPlayer.aMaxWeight)
+            if (vWeight <= this.aPlayer.getMaxWeight())
             {
                 this.aPlayer.setCarriedWeight(vWeight);
                 this.aPlayer.getCarriedItems().addItem(vItem);

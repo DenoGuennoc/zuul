@@ -11,7 +11,7 @@ public class Player
     // instance variables - replace the example below with your own
     private String aName;
     private int aCarriedWeight;
-    final int aMaxWeight;
+    private int aMaxWeight;
     private ItemList aCarriedItems;
     private Room aCurrentRoom;
     private Stack<Room> aPreviousRooms;
@@ -23,9 +23,19 @@ public class Player
     {
         this.aName = pName;
         this.aCarriedWeight = 0;
-        this.aMaxWeight = 100;
+        this.aMaxWeight = 20;
         this.aPreviousRooms = new Stack<Room>();
         this.aCarriedItems = new ItemList();
+    }
+    
+    public void setMaxWeight (final int pNewWeight)
+    {
+        this.aMaxWeight = pNewWeight;
+    }
+    
+    public int getMaxWeight ()
+    {
+        return this.aMaxWeight;
     }
     
     public Room getCurrentRoom()

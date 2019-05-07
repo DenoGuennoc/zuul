@@ -13,16 +13,43 @@ public class Item
     private String aItemName;
     private String aItemDescription;
     private int aItemWeight;
+    private boolean aIsMagic;
+    private boolean aIsEdible;
+    private int aPower;
 
     /**
      * Constructor of the Item class
      */
-    public Item(final String pItemName, final String pItemDescription, final int pItemWeight)
+    public Item(final String pItemName, final String pItemDescription, final int pItemWeight, final boolean pEdible)
     {
         // initialisation des variables d'instance
         this.aItemName = pItemName;
         this.aItemDescription = pItemDescription;
         this.aItemWeight = pItemWeight;
+        this.aIsMagic = false;
+        this.aIsEdible = pEdible;
+        this.aPower = 1;
+    }
+    
+    public boolean getIsMagic ()
+    {
+        return this.aIsMagic;
+    }
+    
+    public boolean getIsEdible ()
+    {
+        return this.aIsEdible;
+    }
+    
+    public int getPower ()
+    {
+        return this.aPower;
+    }
+    
+    public void setIsMagic (final boolean pMagic, final int pPower)
+    {
+        this.aIsMagic = pMagic;
+        this.aPower = pPower;
     }
     
     /**
