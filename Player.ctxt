@@ -19,5 +19,5 @@ comment7.target=int\ getCarriedWeight()
 comment8.params=pWeight
 comment8.target=void\ setCarriedWeight(int)
 comment9.params=
-comment9.target=java.util.HashSet\ getCarriedItems()
+comment9.target=ItemList\ getCarriedItems()
 numComments=10
