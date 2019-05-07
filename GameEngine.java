@@ -341,6 +341,16 @@ public class GameEngine
                 gui.println("Test what ?");
             else
                 test(aCommand);
+        else if (vCommandWord.equals("take"))
+            if(! aCommand.hasSecondWord())
+                gui.println("Take what ?");
+            else
+                take(aCommand);
+        else if (vCommandWord.equals("drop"))
+            if(! aCommand.hasSecondWord())
+                gui.println("Drop what ?");
+            else
+                drop(aCommand);
     }
     
     /**
@@ -411,6 +421,51 @@ public class GameEngine
             this.aPlayer.setCurrentRoom(this.aPlayer.getPreviousRoom());
             this.printLocationInfo();
         }
+    }
+    
+    public void take (final Command pCom)
+    {
+        boolean vNoItem = true;
+        for(Item vItem : this.aPlayer.getCurrentRoom().getItemList())
+        {
+            if (vItem.getItemName().equals(pCom.getSecondWord()))
+            {
+                vNoItem = false;
+                int vWeight = this.aPlayer.getCarriedWeight() + vItem.getItemWeight();
+                if (vWeight <= this.aPlayer.aMaxWeight)
+                {
+                    this.aPlayer.setCarriedWeight(vWeight);
+                    this.aPlayer.getCarriedItems().add(vItem);
+                    this.aPlayer.getCurrentRoom().getItemList().remove(vItem);
+                    gui.println("You took the " + vItem.getItemName() + " with you");
+                    return;
+                }
+                else
+                    gui.println ("This Item is to heavy for you to carry");
+            }
+        }
+        if (vNoItem)
+                gui.println ("There is no such item in here");
+    }
+    
+    public void drop (final Command pCom)
+    {
+        boolean vNoItem = true;
+        for(Item vItem : this.aPlayer.getCarriedItems())
+        {
+            if (vItem.getItemName().equals(pCom.getSecondWord()))
+            {
+                vNoItem = false;
+                int vWeight = this.aPlayer.getCarriedWeight() - vItem.getItemWeight();
+                this.aPlayer.setCarriedWeight(vWeight);
+                this.aPlayer.getCarriedItems().remove(vItem);
+                this.aPlayer.getCurrentRoom().getItemList().add(vItem);
+                gui.println("You drop the " + vItem.getItemName());
+                return;
+            }
+        }
+        if (vNoItem)
+                gui.println ("You don't have such item with you... what do you mean ?");
     }
     
     /**

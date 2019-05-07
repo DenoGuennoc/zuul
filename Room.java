@@ -109,4 +109,10 @@ public class Room
         return vItemList + ".\n";
     }
     
+    public HashSet<Item> getItemList ()
+    {
+        return this.aItemList;
+    }
+    
+    
 } // Room
