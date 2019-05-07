@@ -36,7 +36,7 @@ public class ItemList
     
     public String toStringList ()
     {
-        String vItemList = "Items : ";
+        String vItemList = "";
         if (this.aItemList.isEmpty())
             return "No item here" + ".\n";
         else   

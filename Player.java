@@ -67,4 +67,10 @@ public class Player
     {
         return this.aCarriedItems;
     }
+    
+    public String BagInventory ()
+    {
+        return "Items in your bag : " + this.aCarriedItems.toStringList() + this.aCarriedWeight;
+    }
+    
 }

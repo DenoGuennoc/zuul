@@ -351,6 +351,11 @@ public class GameEngine
                 gui.println("Drop what ?");
             else
                 drop(aCommand);
+        else if (vCommandWord.equals("inventory"))
+            if(aCommand.hasSecondWord())
+                gui.println("No second word after inventory");
+            else
+                inventory();
     }
     
     /**
@@ -484,6 +489,11 @@ public class GameEngine
             catch (final FileNotFoundException pFNFE) {
             }
         }
+    }
+    
+    private void inventory()
+    {
+        gui.println(this.aPlayer.BagInventory());
     }
     
     /**

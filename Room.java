@@ -95,7 +95,7 @@ public class Room
      */
     public String getItemDescription()
     {
-        return aRoomItems.toStringList();
+        return "Items avalable here : " + aRoomItems.toStringList();
     }
     
     public ItemList getRoomItems ()
