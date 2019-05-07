@@ -10,7 +10,7 @@ public class Room
     private String aDescription;
     private HashMap<String, Room> exits;
     private String aImageName;
-    private HashSet<Item> aItemList;
+    private ItemList aRoomItems;
     
     /**
      * Constructor of the Room class.
@@ -20,7 +20,7 @@ public class Room
         this.aDescription = pDescription;
         exits = new HashMap<String, Room>();
         this.aImageName = pImageName;
-        this.aItemList = new HashSet<Item>();
+        this.aRoomItems = new ItemList();
     }
     
     /**
@@ -81,12 +81,9 @@ public class Room
         return this.aImageName;
     }
     
-    /**
-     * Used to add an item to the current room.
-     */
     public void addItem (final Item pItem)
     {
-         this.aItemList.add(pItem);
+        this.aRoomItems.addItem(pItem);
     }
     
     /**
@@ -98,21 +95,12 @@ public class Room
      */
     public String getItemDescription()
     {
-        String vItemList = "Item : ";
-        if (this.aItemList.isEmpty())
-            return "No item here" + ".\n";
-        else   
-            for(Item vItem : aItemList)
-            {
-                vItemList += vItem.getItemName() + " ";
-            }
-        return vItemList + ".\n";
+        return aRoomItems.toStringList();
     }
     
-    public HashSet<Item> getItemList ()
+    public ItemList getRoomItems ()
     {
-        return this.aItemList;
+        return this.aRoomItems;
     }
-    
     
 } // Room

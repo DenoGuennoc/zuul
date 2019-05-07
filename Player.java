@@ -12,7 +12,7 @@ public class Player
     private String aName;
     private int aCarriedWeight;
     final int aMaxWeight;
-    private HashSet<Item> aCarriedItems;
+    private ItemList aCarriedItems;
     private Room aCurrentRoom;
     private Stack<Room> aPreviousRooms;
     
@@ -24,8 +24,8 @@ public class Player
         this.aName = pName;
         this.aCarriedWeight = 0;
         this.aMaxWeight = 100;
-        this.aCarriedItems = new HashSet<Item>();
         this.aPreviousRooms = new Stack<Room>();
+        this.aCarriedItems = new ItemList();
     }
     
     public Room getCurrentRoom()
@@ -63,7 +63,7 @@ public class Player
         this.aCarriedWeight = pWeight;
     }
     
-    public HashSet<Item> getCarriedItems ()
+    public ItemList getCarriedItems ()
     {
         return this.aCarriedItems;
     }

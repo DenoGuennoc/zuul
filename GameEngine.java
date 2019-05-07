@@ -423,49 +423,41 @@ public class GameEngine
         }
     }
     
-    public void take (final Command pCom)
+    private void take (final Command pCom)
     {
-        boolean vNoItem = true;
-        for(Item vItem : this.aPlayer.getCurrentRoom().getItemList())
+        if (this.aPlayer.getCurrentRoom().getRoomItems().ItemExist(pCom.getSecondWord()))
         {
-            if (vItem.getItemName().equals(pCom.getSecondWord()))
+            Item vItem = this.aPlayer.getCurrentRoom().getRoomItems().getItem(pCom.getSecondWord());
+            int vWeight = this.aPlayer.getCarriedWeight() + vItem.getItemWeight();
+            if (vWeight <= this.aPlayer.aMaxWeight)
             {
-                vNoItem = false;
-                int vWeight = this.aPlayer.getCarriedWeight() + vItem.getItemWeight();
-                if (vWeight <= this.aPlayer.aMaxWeight)
-                {
-                    this.aPlayer.setCarriedWeight(vWeight);
-                    this.aPlayer.getCarriedItems().add(vItem);
-                    this.aPlayer.getCurrentRoom().getItemList().remove(vItem);
-                    gui.println("You took the " + vItem.getItemName() + " with you");
-                    return;
-                }
-                else
-                    gui.println ("This Item is to heavy for you to carry");
+                this.aPlayer.setCarriedWeight(vWeight);
+                this.aPlayer.getCarriedItems().addItem(vItem);
+                this.aPlayer.getCurrentRoom().getRoomItems().removeItem(vItem);
+                gui.println("You took the " + vItem.getItemName() + " with you");
+                return;
             }
+            else
+                gui.println ("This Item is to heavy for you to carry");
         }
-        if (vNoItem)
+        else
                 gui.println ("There is no such item in here");
     }
     
-    public void drop (final Command pCom)
+    private void drop (final Command pCom)
     {
-        boolean vNoItem = true;
-        for(Item vItem : this.aPlayer.getCarriedItems())
+        if (this.aPlayer.getCarriedItems().ItemExist(pCom.getSecondWord()))
         {
-            if (vItem.getItemName().equals(pCom.getSecondWord()))
-            {
-                vNoItem = false;
-                int vWeight = this.aPlayer.getCarriedWeight() - vItem.getItemWeight();
-                this.aPlayer.setCarriedWeight(vWeight);
-                this.aPlayer.getCarriedItems().remove(vItem);
-                this.aPlayer.getCurrentRoom().getItemList().add(vItem);
-                gui.println("You drop the " + vItem.getItemName());
-                return;
-            }
+            Item vItem = this.aPlayer.getCarriedItems().getItem(pCom.getSecondWord());
+            int vWeight = this.aPlayer.getCarriedWeight() - vItem.getItemWeight();
+            this.aPlayer.setCarriedWeight(vWeight);
+            this.aPlayer.getCarriedItems().removeItem(vItem);
+            this.aPlayer.getCurrentRoom().getRoomItems().addItem(vItem);
+            gui.println("You drop the " + vItem.getItemName());
+            return;
         }
-        if (vNoItem)
-                gui.println ("You don't have such item with you... what do you mean ?");
+        else
+        gui.println ("You don't have such item with you... what do you mean ?");
     }
     
     /**

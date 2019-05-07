@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=ItemList
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ ItemList\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=ItemList()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ ItemList\r\n
+comment2.params=pItem
+comment2.target=void\ addItem(Item)
+comment3.params=pItem
+comment3.target=void\ removeItem(Item)
+comment4.params=
+comment4.target=boolean\ emptyList()
+comment5.params=
+comment5.target=java.lang.String\ toStringList()
+comment6.params=pItemName
+comment6.target=boolean\ ItemExist(java.lang.String)
+comment7.params=pItemName
+comment7.target=Item\ getItem(java.lang.String)
+numComments=8
