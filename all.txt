@@ -87,8 +87,19 @@ go up
 back
 go caravan
 go boat
-go ferry
 look
-eat
+eat the
+take phone
+eat phone
+drop phone
+take energybar
+eat energybar
+drop energybar
+take tge
+take
+drop
+take passport
+go ferry
+inventory
 help
 quit

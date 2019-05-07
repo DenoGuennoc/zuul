@@ -425,8 +425,10 @@ public class GameEngine
                 {
                     gui.println("You've got plenty of energy now !");
                     Item vItem = this.aPlayer.getCarriedItems().getItem(pCom.getSecondWord());
-                    int vWeight = this.aPlayer.getCarriedWeight() * vItem.getPower();
-                    this.aPlayer.setCarriedWeight(vWeight);
+                    int vMaxWeight = this.aPlayer.getMaxWeight() * vItem.getPower();
+                    this.aPlayer.setMaxWeight(vMaxWeight);
+                    int vCarriedWeight = this.aPlayer.getCarriedWeight() - vItem.getItemWeight();
+                    this.aPlayer.setCarriedWeight(vCarriedWeight);
                     this.aPlayer.getCarriedItems().removeItem(vItem);
                     gui.println("You can carry " + vItem.getPower() + " times more weight than you could before !");
                 }
