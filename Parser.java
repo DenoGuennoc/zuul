@@ -23,7 +23,7 @@ public class Parser
     private CommandWords aValidCommands;  // (voir la classe CommandWords)
     
     /**
-     * Constructor of the Parser class
+     * Constructor of the Parser class.
      */
     public Parser() 
     {
@@ -64,7 +64,7 @@ public class Parser
     } // getCommand(.)
 
     /**
-     * Return a list (String) of valid command words
+     * Return a list (String) of valid command words.
      */
     public String showCommands()
     {

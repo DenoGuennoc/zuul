@@ -1,8 +1,12 @@
 import java.util.*; 
 
 /**
- * Command class :
+ * Class Command :
  * 
+ * Creates a command. A command can be one or two words.
+ * 
+ * @author Denoela Guennoc
+ * @version 2019
  */
 public class Command
 {

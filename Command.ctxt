@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Command
-comment0.text=\r\n\ Command\ class\ \:\r\n\ \r\n
+comment0.text=\r\n\ Class\ Command\ \:\r\n\ \r\n\ Creates\ a\ command.\ A\ command\ can\ be\ one\ or\ two\ words.\r\n\ \r\n\ @author\ Denoela\ Guennoc\r\n\ @version\ 2019\r\n
 comment1.params=pCommandWord\ pSecondWord
 comment1.target=Command(java.lang.String,\ java.lang.String)
 comment1.text=\r\n\ Constructor\ of\ the\ Command\ class.\r\n

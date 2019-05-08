@@ -1,5 +1,3 @@
-go consulate
-back
 go ferry
 back
 go boat
@@ -21,8 +19,6 @@ go jet
 back
 back
 go down
-back
-go consulate
 back
 go catamaran
 go up
@@ -100,6 +96,7 @@ take
 drop
 take passport
 go ferry
+go consulate
 inventory
 help
 quit

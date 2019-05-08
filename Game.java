@@ -1,7 +1,12 @@
  import java.util.*; 
  
 /**
- * Game class.
+ * Class Game :
+ * 
+ * Class of the game.
+ * 
+ * @author Denoela Guennoc
+ * @version 2019
  */
 public class Game
 {

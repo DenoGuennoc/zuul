@@ -1,9 +1,13 @@
 import java.util.*; 
 
 /**
- * Room class :
+ * Class Room :
+ * 
  * Contains all the needed accessors and modifiers concerning the rooms
  * and exits.
+ * 
+ * @author  Denoela Guennoc
+ * @version 2019
  */
 public class Room
 {
@@ -70,7 +74,7 @@ public class Room
      */
     public String getLongDescription ()
     {
-        return "You are in " + aDescription + ".\n" + getExitString() + ".\n" + getItemDescription();
+        return "You are in " + aDescription + ".\n" + getExitString() + ".\n" + getItemDescription() + "\n" + getItemLongDescription();
     }
     
     /**
@@ -81,6 +85,9 @@ public class Room
         return this.aImageName;
     }
     
+    /**
+     * Used to add an item to the room.
+     */
     public void addItem (final Item pItem)
     {
         this.aRoomItems.addItem(pItem);
@@ -98,11 +105,30 @@ public class Room
         return "Items avalable here : " + aRoomItems.toStringList();
     }
     
+    /**
+     * Returns the informations about the items located in the
+     * current room, returns "Item description : " + the name of 
+     * the disponibles items, there description and its weigth.
+     * 
+     * If there's no item in the room, returns "No item here."
+     */
+    public String getItemLongDescription()
+    {
+        return aRoomItems.toLongStringList();
+    }
+    
+    /**
+     * Used to access the list of all the items in the room.
+     */
     public ItemList getRoomItems ()
     {
         return this.aRoomItems;
     }
     
+    /**
+     * Returns true if there is a door between the current room
+     * and the room placed as the parameter.
+     */
     public boolean isExit (final Room pRoom)
     {
         return this.exits.containsValue(pRoom);

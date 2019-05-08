@@ -1,10 +1,12 @@
 import java.util.*;
 
 /**
- * Write a description of class ItemList here.
+ * Class ItemList :
+ * 
+ * Contains the methods related to items lists.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Denoela Guennoc
+ * @version 2019
  */
 public class ItemList
 {
@@ -12,28 +14,43 @@ public class ItemList
     private HashSet<Item> aItemList;
 
     /**
-     * Constructor for objects of class ItemList
+     * Constructor for objects of class ItemList.
      */
     public ItemList()
     {
         this.aItemList = new HashSet<Item>();
     }
     
+    /**
+     * Used to add an item to the list.
+     */
     public void addItem (final Item pItem)
     {
         this.aItemList.add(pItem);
     }
     
+    /**
+     * Used to remove an item from the list.
+     */
     public void removeItem (final Item pItem)
     {
         this.aItemList.remove(pItem);
     }
     
+    /**
+     * Returns true if there is no items in the list.
+     */
     public boolean emptyList ()
     {
         return this.aItemList.isEmpty();
     }
     
+    /**
+     * Returns a String containing the names of the items
+     * in the list.
+     * 
+     * Returns No item here if the list is empty.
+     */
     public String toStringList ()
     {
         String vItemList = "";
@@ -47,6 +64,29 @@ public class ItemList
         return vItemList + ".\n";
     }
     
+    /**
+     * Returns for each item in the list its name, description
+     * and weigth.
+     */
+    public String toLongStringList ()
+    {
+        String vItemList = "";
+        if (this.aItemList.isEmpty())
+            return vItemList;
+        else
+        {  
+            vItemList += "Item's description : \n";
+            for(Item vItem : this.aItemList)
+            {
+                vItemList += vItem.getItemName() + ", " + vItem.getItemDescription() + ", " + "needed space : " + vItem.getItemWeight() + "\n";
+            }
+        }
+        return vItemList + ".\n";
+    }
+    
+    /**
+     * Returns true if the item's name place as parameter is in the list.
+     */
     public boolean ItemExist (final String pItemName)
     {
         boolean vItemExist = false;
@@ -60,6 +100,9 @@ public class ItemList
         return vItemExist;
     }
     
+    /**
+     * Used to access an item in the list based on its name.
+     */
     public Item getItem (final String pItemName)
     {
         for(Item vItem : this.aItemList)
