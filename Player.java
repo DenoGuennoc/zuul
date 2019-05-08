@@ -15,6 +15,8 @@ public class Player
     private ItemList aCarriedItems;
     private Room aCurrentRoom;
     private Stack<Room> aPreviousRooms;
+    final int aTimeLimit;
+    private int aTimer;
     
     /**
      * Constructor for objects of class Player
@@ -26,6 +28,8 @@ public class Player
         this.aMaxWeight = 20;
         this.aPreviousRooms = new Stack<Room>();
         this.aCarriedItems = new ItemList();
+        this.aTimeLimit= 20;
+        this.aTimer = 0;
     }
     
     public void setMaxWeight (final int pNewWeight)
@@ -81,6 +85,16 @@ public class Player
     public String BagInventory ()
     {
         return "Items in your bag : " + this.aCarriedItems.toStringList() + this.aCarriedWeight;
+    }
+    
+    public int getTimer ()
+    {
+        return this.aTimer;
+    }
+    
+    public void Clock ()
+    {
+        this.aTimer++;
     }
     
 }

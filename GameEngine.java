@@ -312,8 +312,16 @@ public class GameEngine
     { 
         gui.println(pCommandLine);
         Command aCommand = aParser.getCommand(pCommandLine);
-         
-        if (aCommand.isUnknown()) 
+        
+        if (this.aPlayer.getTimer() > this.aPlayer.aTimeLimit)
+        {
+            gui.println("Time is over, you loose...");
+            gui.println("Try again you may win next time !");
+            endGame();
+            return;
+        }
+        
+         if (aCommand.isUnknown()) 
         {
             gui.println("I don't know what you mean...");
             return;
@@ -362,6 +370,7 @@ public class GameEngine
                 gui.println("No second word after inventory");
             else
                 inventory();
+        
     }
     
     /**
@@ -396,6 +405,8 @@ public class GameEngine
             this.aPlayer.addPreviousRoom(this.aPlayer.getCurrentRoom());
             this.aPlayer.setCurrentRoom(vNextRoom);
             this.printLocationInfo();
+            if (pDep.getSecondWord() != "up" && pDep.getSecondWord() != "down")
+                this.aPlayer.Clock();
         }
         else
             gui.println("There is no door !");
