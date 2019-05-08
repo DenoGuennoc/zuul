@@ -318,7 +318,7 @@ public class GameEngine
      * If so, the game ends. If not, this method attributes to each 
      * command the user gave the right method.
      */
-     public void processCommand (String pCommandLine)
+     public void processCommand (final String pCommandLine)
     { 
         gui.println(pCommandLine);
         Command aCommand = aParser.getCommand(pCommandLine);

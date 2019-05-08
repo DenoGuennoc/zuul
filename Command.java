@@ -23,7 +23,7 @@ public class Command
     }
     
     /**
-     * Accessor : returns the first word of the command the user gave.
+     * @return the first word of the command the user gave.
      */
     public String getCommandWord ()
     {
@@ -31,7 +31,7 @@ public class Command
     }
     
     /**
-     * Accessor : returns the second word of the command the user gave.
+     * @return the second word of the command the user gave.
      */
     public String getSecondWord ()
     {
@@ -39,8 +39,8 @@ public class Command
     }
     
     /**
-     * Returns true if the command the user gave contains a second word.
-     * Returns false otherwise.
+     * @return true if the command the user gave contains a second word.
+     * @return false otherwise.
      */
     public boolean hasSecondWord ()
     {
@@ -48,7 +48,7 @@ public class Command
     }
     
     /**
-     * Returns true if the entered command is unknown.
+     * @return true if the entered command is unknown.
      */
     public boolean isUnknown ()
     {

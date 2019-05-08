@@ -35,8 +35,8 @@ public class Item
     }
     
     /**
-     * Returns true if the item is magic.
-     * Returns false otherwise.
+     * @return true if the item is magic.
+     * @return false otherwise.
      */
     public boolean getIsMagic ()
     {
@@ -44,8 +44,8 @@ public class Item
     }
     
     /**
-     * Returns true if the item is edible.
-     * Returns false otherwise.
+     * @return true if the item is edible.
+     * @return false otherwise.
      */
     public boolean getIsEdible ()
     {
@@ -57,6 +57,7 @@ public class Item
      * The power is the number of times the weight the
      * player can carry would be multiply if the item
      * is eaten.
+     * @return int aPower
      */
     public int getPower ()
     {
@@ -74,6 +75,7 @@ public class Item
     
     /**
      * Accessor : used to access the name of the item.
+     * @return String aItemName
      */
     public String getItemName ()
     {
@@ -82,6 +84,7 @@ public class Item
     
     /**
      * Accessor : used to access the description of the item.
+     * @return String aItemDescription
      */
     public String getItemDescription ()
     {
@@ -90,6 +93,7 @@ public class Item
     
     /**
      * Accessor : used to access the weight of the item.
+     * @return int aItemWeight
      */
     public int getItemWeight ()
     {

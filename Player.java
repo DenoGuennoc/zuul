@@ -44,6 +44,7 @@ public class Player
     
     /**
      * Used to access the maximal weight the player can carry.
+     * @return int aMaxWeight
      */
     public int getMaxWeight ()
     {
@@ -52,6 +53,7 @@ public class Player
     
     /**
      * Used to access the current room the player is in.
+     * @return Room aCurrentRoom
      */
     public Room getCurrentRoom()
     {
@@ -76,9 +78,9 @@ public class Player
     }
     
     /**
-     * Returns true if the stack containing the previous
+     * @return true if the stack containing the previous
      * rooms the player has been in is empty.
-     * Returns false otherwise.
+     * @return false otherwise.
      */
     public boolean noPreviousRoom()
     {
@@ -86,7 +88,7 @@ public class Player
     }
     
     /**
-     * Returns the last room the player has been in and
+     * @return the last room the player has been in and
      * erases it from the stack.
      */
     public Room popPreviousRoom()
@@ -97,6 +99,7 @@ public class Player
     /**
      * Used to access the weight the player is already
      * carrying with him.
+     * @return int aCarriedWeight
      */
     public int getCarriedWeight ()
     {
@@ -114,6 +117,7 @@ public class Player
     /**
      * Used to access the list of items the player has in
      * his bag.
+     * @return ItemList aCarriedItems
      */
     public ItemList getCarriedItems ()
     {
@@ -121,7 +125,7 @@ public class Player
     }
     
     /**
-     * Returns the String of all the items the player has
+     * @return the String of all the items the player has
      * in his bag, the weight it takes and the weight left.
      */
     public String BagInventory ()
@@ -131,6 +135,7 @@ public class Player
     
     /**
      * Used to access the player timer.
+     * @return int aTimer
      */
     public int getTimer ()
     {
@@ -147,7 +152,7 @@ public class Player
     
     
     /**
-     * Returns true if there is no door between the player's
+     * @return true if there is no door between the player's
      * current room and his previous one.
      */
     public boolean canGoBack ()

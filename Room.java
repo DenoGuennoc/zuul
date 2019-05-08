@@ -29,6 +29,7 @@ public class Room
     
     /**
      * Accessor : is used to reach the current room description.
+     * @return String aDescription
      */
     public String getDescription ()
     {
@@ -45,16 +46,16 @@ public class Room
     }
     
     /**
-     * Accessor : returns a value for each possible exit. Returns null 
+     * Accessor : @return a value for each possible exit. @return null 
      * if the exit doesn't exist in the current room.
      */
-    public Room getExit(String pDirection)
+    public Room getExit(final String pDirection)
     {
         return exits.get(pDirection);
     }
     
     /**
-     * Returns a list of all the possible exits for the current room.
+     * @return a list of all the possible exits for the current room.
      */
     public String getExitString()
     {
@@ -68,7 +69,7 @@ public class Room
     }
     
     /**
-     * Returns a longer description of the current room.
+     * @return a longer description of the current room.
      * It contains the name of the room, the list of its exits
      * and the list of the items in the room.
      */
@@ -78,7 +79,7 @@ public class Room
     }
     
     /**
-     * Returns a String describing the room's image name.
+     * @return a String describing the room's image name.
      */
     public String getImageName ()
     {
@@ -94,11 +95,11 @@ public class Room
     }
     
     /**
-     * Returns the informations about the items located in the
+     * @return the informations about the items located in the
      * current room, returns "Item : " + the list of all the 
      * name of the disponibles items.
      * 
-     * If there's no item in the room, returns "No item here."
+     * If there's no item in the room, @return "No item here."
      */
     public String getItemDescription()
     {
@@ -106,11 +107,9 @@ public class Room
     }
     
     /**
-     * Returns the informations about the items located in the
+     * @return the informations about the items located in the
      * current room, returns "Item description : " + the name of 
-     * the disponibles items, there description and its weigth.
-     * 
-     * If there's no item in the room, returns "No item here."
+     * the disponibles items, there description and its weight.
      */
     public String getItemLongDescription()
     {
@@ -119,6 +118,7 @@ public class Room
     
     /**
      * Used to access the list of all the items in the room.
+     * @return ItemList aRoomItems
      */
     public ItemList getRoomItems ()
     {
@@ -126,7 +126,7 @@ public class Room
     }
     
     /**
-     * Returns true if there is a door between the current room
+     * @return true if there is a door between the current room
      * and the room placed as the parameter.
      */
     public boolean isExit (final Room pRoom)

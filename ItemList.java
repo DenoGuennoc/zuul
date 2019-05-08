@@ -38,7 +38,7 @@ public class ItemList
     }
     
     /**
-     * Returns true if there is no items in the list.
+     * @return true if there is no items in the list.
      */
     public boolean emptyList ()
     {
@@ -46,10 +46,10 @@ public class ItemList
     }
     
     /**
-     * Returns a String containing the names of the items
+     * @return a String containing the names of the items
      * in the list.
      * 
-     * Returns No item here if the list is empty.
+     * @return No item here if the list is empty.
      */
     public String toStringList ()
     {
@@ -65,8 +65,8 @@ public class ItemList
     }
     
     /**
-     * Returns for each item in the list its name, description
-     * and weigth.
+     * @return for each item in the list its name, description
+     * and weight.
      */
     public String toLongStringList ()
     {
@@ -85,7 +85,7 @@ public class ItemList
     }
     
     /**
-     * Returns true if the item's name place as parameter is in the list.
+     * @return true if the item's name place as parameter is in the list.
      */
     public boolean ItemExist (final String pItemName)
     {
@@ -102,6 +102,7 @@ public class ItemList
     
     /**
      * Used to access an item in the list based on its name.
+     * @return the item with the given name
      */
     public Item getItem (final String pItemName)
     {

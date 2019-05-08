@@ -18,7 +18,7 @@ public class CommandWords
     };
     
     /**
-     * Create a String with a list of all the valid commands.
+     * @return a String with a list of all the valid commands.
      */
     public String getCommandList ()
     {
@@ -40,8 +40,8 @@ public class CommandWords
 
     /**
      * Check if a given String is a valid command.
-     * Returns true if pString (tested String) is a valid command.
-     * Returns false otherwise.
+     * @return true if pString (tested String) is a valid command.
+     * @return false otherwise.
      */
     public boolean isCommand( final String pString )
     {
