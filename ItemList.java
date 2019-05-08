@@ -40,7 +40,7 @@ public class ItemList
         if (this.aItemList.isEmpty())
             return "No item here" + ".\n";
         else   
-            for(Item vItem : aItemList)
+            for(Item vItem : this.aItemList)
             {
                 vItemList += vItem.getItemName() + " ";
             }

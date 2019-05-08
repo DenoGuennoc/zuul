@@ -62,7 +62,7 @@ public class Player
         return aPreviousRooms.empty();
     }
     
-    public Room getPreviousRoom()
+    public Room popPreviousRoom()
     {
         return aPreviousRooms.pop();
     }
@@ -95,6 +95,11 @@ public class Player
     public void Clock ()
     {
         this.aTimer++;
+    }
+    
+    public boolean canGoBack ()
+    {
+        return this.aCurrentRoom.isExit(aPreviousRooms.peek());
     }
     
 }

@@ -18,7 +18,7 @@ public class Room
     public Room (final String pDescription, final String pImageName) 
     {
         this.aDescription = pDescription;
-        exits = new HashMap<String, Room>();
+        this.exits = new HashMap<String, Room>();
         this.aImageName = pImageName;
         this.aRoomItems = new ItemList();
     }
@@ -101,6 +101,11 @@ public class Room
     public ItemList getRoomItems ()
     {
         return this.aRoomItems;
+    }
+    
+    public boolean isExit (final Room pRoom)
+    {
+        return this.exits.containsValue(pRoom);
     }
     
 } // Room
